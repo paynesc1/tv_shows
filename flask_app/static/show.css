@@ -1,0 +1,18 @@
+#main {
+    display: flex;
+    flex-direction: column;
+    width: 820px;
+    height: 700px;
+    margin-left: 300px;
+    border: solid gray;
+}
+
+#header{
+    margin-left: 900px;
+}
+
+#header{
+    display: flex;
+    flex-direction: row;
+
+}

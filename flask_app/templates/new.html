@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/user.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body id="body">
+    <div id="left">
+        <h1>Add a New Show!</h1>
+        <p>Description must not be blank.</p>
+        {% with messages = get_flashed_messages(category_filter=["show_error"])%}
+            {%if messages%}
+                {%for message in messages%}
+                <p>{{message}}</p>
+                {%endfor%}
+            {%endif%}
+        {%endwith%}
+        <form action="/save/new", method="post">
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Title" aria-label="Model" aria-describedby="basic-addon1" name="title">
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Network" aria-label="Make" aria-describedby="basic-addon1" name="network">
+            </div>
+            
+            <div class="input-group mb-3">
+                <input type="date" class="form-control" aria-label="Year" placeholder="Release Date" name="release_date" min="1920-01-01" max="2023-08-01">
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Description" aria-label="Make" aria-describedby="basic-addon1" name="description">
+            </div>
+
+
+            <input type="submit" value="Add">
+        </form>
+    </div>
+    <a href="/logout">logout</a>
+    <a href="/welcome">TV Shows</a>
+</body>
+</html>
+
